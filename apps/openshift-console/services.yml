@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-api
+  namespace: openshift-console
+spec:
+  selector:
+    app: flannel
+  ports:
+  - port: 6443
+    targetPort: 6443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openshift-console-service
+  namespace: openshift-console
+spec:
+  selector:
+    app: openshift-console
+  ports:
+  - port: 80
+    targetPort: 9000
+...
